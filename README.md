@@ -1,5 +1,7 @@
 # ansible-role-elasticsearch
 
+[![Galaxy](http://img.shields.io/badge/galaxy-jonathanio.elasticsearch-blue.svg?style=flat-square)](https://galaxy.ansible.com/jonathanio/elasticsearch)
+
 Ansible role to install and manage ElasticSearch, either standalone or part of the ELK cluster. All tested with test-kitchen and serverspec.
 
 ## Role Variables
