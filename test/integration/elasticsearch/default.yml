@@ -1,0 +1,10 @@
+---
+- name: Configure ElasticSearch
+  hosts: all
+  become: true
+  become_user: root
+  become_method: sudo
+  vars:
+    elasticsearch_bind: 0.0.0.0
+  roles:
+    - ansible-role-elasticsearch
