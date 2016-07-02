@@ -1,0 +1,9 @@
+---
+# ArchLinux-specific package tasks for elasticsearch
+
+- name: Install elasticsearch
+  pacman:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    "{{ elasticsearch_packages }}"

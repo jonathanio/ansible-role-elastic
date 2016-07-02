@@ -1,2 +1,7 @@
 ---
 # handlers file for elasticsearch
+
+- name: reload elasticsearch
+  service:
+    name: "{{ elasticsearch_service }}"
+    state: reloaded

@@ -1,0 +1,11 @@
+---
+# ArchLinux-specific vars file for elasticsearch
+
+elasticsearch_packages:
+  - elasticsearch
+
+elasticsearch_config:
+  master: /etc/elasticsearch/elasticsearch.yml
+  logging: /etc/elasticsearch/logging.yml
+
+elasticsearch_service: elasticsearch

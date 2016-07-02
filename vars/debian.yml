@@ -1,0 +1,16 @@
+---
+# Debian-specific vars file for elasticsearch
+
+elasticsearch_repository:
+  url: https://packages.elastic.co/elasticsearch/2.x/debian
+  type: stable main
+
+elasticsearch_packages:
+  - elasticsearch
+  - rsyslog-elasticsearch
+
+elasticsearch_config:
+  master: /etc/elasticsearch/elasticsearch.yml
+  logging: /etc/elasticsearch/logging.yml
+
+elasticsearch_service: elasticsearch

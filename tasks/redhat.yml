@@ -1,0 +1,18 @@
+---
+# RedHat-specific package tasks for elasticsearch
+
+- name: Install elasticsearch repository
+  yum_repository:
+    name: elasticsearch
+    file: elasticsearch
+    baseurl: "{{ elasticsearch_repository.url }}"
+    gpgkey: "{{ elasticsearch_gpg_key }}"
+    gpgcheck: yes
+
+- name: Install elasticsearch
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: installed
+  with_items:
+    "{{ elasticsearch_packages }}"
