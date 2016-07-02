@@ -1,2 +1,4 @@
 ---
-src: jonathanio.java
+- src: https://github.com/jonathanio/ansible-role-java
+  version: v1.1.0
+  name: java
