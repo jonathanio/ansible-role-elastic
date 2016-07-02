@@ -7,7 +7,8 @@ elasticsearch_repository:
 
 elasticsearch_packages:
   - elasticsearch
-  - rsyslog-elasticsearch
+# Requires Backported version of rsyslog
+# - rsyslog-elasticsearch
 
 elasticsearch_config:
   master: /etc/elasticsearch/elasticsearch.yml

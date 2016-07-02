@@ -6,7 +6,7 @@ elasticsearch_repository:
 
 elasticsearch_packages:
   - elasticsearch
-  - rsyslog-elasticsearch
+# - rsyslog-elasticsearch
 
 elasticsearch_config:
   master: /etc/elasticsearch/elasticsearch.yml
