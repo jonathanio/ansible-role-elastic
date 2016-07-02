@@ -1,6 +1,8 @@
 ---
 # ArchLinux-specific package tasks for elasticsearch
 
+- include_vars: arch.yml
+
 - name: Install elasticsearch
   pacman:
     name: "{{ item }}"

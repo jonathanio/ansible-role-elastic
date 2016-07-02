@@ -1,6 +1,8 @@
 ---
 # RedHat-specific package tasks for elasticsearch
 
+- include_vars: redhat.yml
+
 - name: Install elasticsearch repository
   yum_repository:
     name: elasticsearch
