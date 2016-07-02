@@ -82,6 +82,7 @@ suites:
 provisioner:
   name: ansible_playbook
   hosts: all
+  requirements_path: test/requirements.yml
   require_ansible_omnibus: true
   require_ruby_for_busser: true
   require_chef_for_busser: false

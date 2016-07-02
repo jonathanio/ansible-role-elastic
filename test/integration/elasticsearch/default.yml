@@ -1,17 +1,4 @@
 ---
-- name: Download Dependencies
-  hosts: all
-  tasks:
-    - name: Clone role dependencies
-      git:
-        repo: "https://github.com/jonathanio/ansible-role-{{ item.role }}.git"
-        dest: "/tmp/kitchen/roles/ansible-role-{{ item.role }}"
-        version: "{{ item.version }}"
-        recursive: yes
-      with_items:
-        - role: java
-          version: v1.1.0
-
 - name: Configure ElasticSearch
   hosts: all
   become: true
@@ -20,5 +7,5 @@
   vars:
     elasticsearch_bind: 0.0.0.0
   roles:
-    - { role: ansible-role-java, java_type: openjdk, java_version: 8 }
+    - { role: java, java_type: openjdk, java_version: 8 }
     - { role: ansible-role-elasticsearch }
