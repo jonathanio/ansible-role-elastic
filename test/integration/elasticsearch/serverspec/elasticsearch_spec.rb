@@ -7,18 +7,18 @@ case os[:family]
 when 'debian','ubuntu'
   package_name = 'elasticsearch'
   service_name = 'elasticsearch'
-  config_file = '/etc/elasticsearch/elasticsearch.conf'
-  run_dir = '/var/run/elasticsearch'
+  config_file = '/etc/elasticsearch/elasticsearch.yml'
+  logging_file = '/etc/elasticsearch/elasticsearch.yml'
 when 'redhat','centos'
   package_name = 'elasticsearch'
   service_name = 'elasticsearch'
-  config_file = '/etc/elasticsearch.conf'
-  run_dir = '/run/elasticsearch'
+  config_file = '/etc/elasticsearch/elasticsearch.yml'
+  logging_file = '/etc/elasticsearch/elasticsearch.yml'
 else
   package_name = 'elasticsearch'
   service_name = 'elasticsearch'
-  config_file = '/etc/elasticsearch.conf'
-  run_dir = '/run/elasticsearch'
+  config_file = '/etc/elasticsearch/elasticsearch.yml'
+  logging_file = '/etc/elasticsearch/elasticsearch.yml'
 end
 
 describe package(package_name) do
@@ -28,7 +28,15 @@ end
 describe file(config_file) do
   it { should exist }
   it { should be_file }
-  it { should be_mode 640 }
+  it { should be_mode 644 }
+  it { should be_owned_by 'root' }
+  it { should be_grouped_into 'root' }
+end
+
+describe file(logging_file) do
+  it { should exist }
+  it { should be_file }
+  it { should be_mode 644 }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
