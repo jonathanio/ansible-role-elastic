@@ -3,7 +3,7 @@
 
 - include_vars: arch.yml
 
-- name: Install elasticsearch
+- name: Install ElasticSearch
   pacman:
     name: "{{ item }}"
     state: installed

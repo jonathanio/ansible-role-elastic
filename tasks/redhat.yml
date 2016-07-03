@@ -3,7 +3,7 @@
 
 - include_vars: redhat.yml
 
-- name: Install elasticsearch repository
+- name: Install ElasticSearch repository
   yum_repository:
     name: elasticsearch
     description: ElasticSearch Repository
@@ -12,7 +12,7 @@
     gpgkey: "{{ elasticsearch_gpg_key }}"
     gpgcheck: yes
 
-- name: Install elasticsearch
+- name: Install ElasticSearch
   yum:
     name: "{{ item }}"
     update_cache: yes

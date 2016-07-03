@@ -8,18 +8,18 @@
     name: apt-transport-https
     state: installed
 
-- name: Install elasticsearch repository
+- name: Install ElasticSearch repository
   apt_repository:
     repo: "deb {{ elasticsearch_repository.url }} {{ elasticsearch_repository.type }}"
     filename: elasticsearch
     state: present
 
-- name: Install elasticsearch GPG key
+- name: Install ElasticSearch GPG key
   apt_key:
     url: "{{ elasticsearch_gpg_key }}"
     state: present
 
-- name: Install elasticsearch
+- name: Install ElasticSearch
   apt:
     name: "{{ item }}"
     update_cache: yes

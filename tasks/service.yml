@@ -1,7 +1,7 @@
 ---
 # service management tasks for elasticsearch
 
-- name: Start/Enable elasticsearch
+- name: Start/Enable ElasticSearch
   service:
     name: "{{ elasticsearch_service }}"
     state: started
