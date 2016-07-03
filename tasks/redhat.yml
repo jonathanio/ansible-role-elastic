@@ -6,6 +6,7 @@
 - name: Install elasticsearch repository
   yum_repository:
     name: elasticsearch
+    description: ElasticSearch Repository
     file: elasticsearch
     baseurl: "{{ elasticsearch_repository.url }}"
     gpgkey: "{{ elasticsearch_gpg_key }}"
