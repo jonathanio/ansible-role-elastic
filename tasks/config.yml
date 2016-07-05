@@ -9,7 +9,7 @@
     group: "{{ elasticsearch_config.group }}"
     mode: 0640
   notify:
-    reload elasticsearch
+    restart elasticsearch
 
 - name: Install logging.yml
   template:
@@ -19,4 +19,4 @@
     group: "{{ elasticsearch_config.group }}"
     mode: 0640
   notify:
-    reload elasticsearch
+    restart elasticsearch
