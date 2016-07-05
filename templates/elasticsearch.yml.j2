@@ -1,0 +1,17 @@
+# {{ ansible_managed }}
+
+network.host: {{ elasticsearch_bind }}
+http.port: {{ elasticsearch_port }}
+
+cluster.name: {{ elasticsearch_cluster_name }}
+# node.name: node-1
+# path.data: /path/to/data
+# path.logs: /path/to/logs
+
+bootstrap.mlockall: true
+
+# discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+# discovery.zen.minimum_master_nodes: 3
+# gateway.recover_after_nodes: 3
+
+action.destructive_requires_name: true
