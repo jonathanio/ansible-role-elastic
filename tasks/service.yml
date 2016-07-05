@@ -4,5 +4,5 @@
 - name: Start/Enable ElasticSearch
   service:
     name: "{{ elasticsearch_service }}"
-    state: started
+    state: restarted
     enabled: yes
