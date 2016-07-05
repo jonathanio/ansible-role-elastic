@@ -6,7 +6,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-debian-7
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: debian-7
   - name: debian-8
@@ -15,7 +15,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-debian-8
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: debian-8
   - name: centos-6
@@ -29,7 +29,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-centos-6
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: centos-6
   - name: centos-7
@@ -41,7 +41,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-centos-7
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: centos-7
   - name: ubuntu-14.04
@@ -53,7 +53,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1404
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: ubuntu-14.04
   - name: ubuntu-16.04
@@ -64,7 +64,7 @@ platforms:
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1604
-        CreatedBy: test-kitchen
+        CreatedBy: TestKitchen
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: ubuntu-16.04
 
