@@ -45,7 +45,7 @@ end
 describe file(config_file) do
   it { should exist }
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 640 }
   it { should be_owned_by config_owner }
   it { should be_grouped_into config_group }
 end
@@ -53,7 +53,7 @@ end
 describe file(logging_file) do
   it { should exist }
   it { should be_file }
-  it { should be_mode 644 }
+  it { should be_mode 640 }
   it { should be_owned_by config_owner }
   it { should be_grouped_into config_group }
 end
