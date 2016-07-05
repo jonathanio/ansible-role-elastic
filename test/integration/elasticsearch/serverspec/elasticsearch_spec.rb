@@ -64,6 +64,6 @@ describe service(service_name) do
 end
 
 describe port(9200) do
-  it { should be_listening.on('0.0.0.0').with('tcp') }
+  it { should be_listening.on('::').with('tcp') }
   it { should_not be_listening.with('udp') }
 end
