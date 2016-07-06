@@ -3,5 +3,6 @@
 
 - name: Wait for ElasticSearch to start
   wait_for:
-    port: 9200
+    host: "{{ elasticsearch_bind }}"
+    port: "{{ elasticsearch_port }}"
     delay: 1
