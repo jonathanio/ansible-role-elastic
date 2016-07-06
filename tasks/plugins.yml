@@ -1,6 +1,9 @@
 ---
 # plugin installation tasks for elasticsearch
 
+# Make sure the configuration is reloaded (if required) before continuing
+- meta: flush_handlers
+
 - name: Wait for ElasticSearch to start
   wait_for:
     host: "{{ elasticsearch_bind }}"
