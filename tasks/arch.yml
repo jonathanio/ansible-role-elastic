@@ -9,3 +9,13 @@
     state: installed
   with_items:
     "{{ elasticsearch_packages }}"
+
+- name: Configure ElasticSearch Defaults
+  template:
+    src: elasticsearch.j2
+    dest: /etc/defaults/elasticsearch
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    restart elasticsearch
