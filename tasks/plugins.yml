@@ -12,7 +12,12 @@
 
 - name: Install plugins in ElasticSearch
   command: >
-    /usr/share/elasticsearch/bin/plugin install "{{ item }}"
+    /usr/share/elasticsearch/bin/plugin \
+      -Dhttp.proxyHost="{{ squid_hostname }}" \
+      -Dhttp.proxyPort="{{ squid_port | default(3128) }}" \
+      -Dhttps.proxyHost="{{ squid_hostname }}" \
+      -Dhttps.proxyPort="{{ squid_port | default(3128) }}" \
+      install "{{ item }}"
   args:
     creates: "/usr/share/elasticsearch/plugins/{{ item }}"
   ignore_errors: true
@@ -23,7 +28,12 @@
 
 - name: Remove plugins from ElasticSearch
   command: >
-    /usr/share/elasticsearch/bin/plugin remove "{{ item }}"
+    /usr/share/elasticsearch/bin/plugin \
+      -Dhttp.proxyHost="{{ squid_hostname }}" \
+      -Dhttp.proxyPort="{{ squid_port | default(3128) }}" \
+      -Dhttps.proxyHost="{{ squid_hostname }}" \
+      -Dhttps.proxyPort="{{ squid_port | default(3128) }}" \
+      remove "{{ item }}"
   args:
     removes: "/usr/share/elasticsearch/plugins/{{ item }}"
   ignore_errors: true
