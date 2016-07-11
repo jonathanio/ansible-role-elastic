@@ -67,3 +67,8 @@ describe port(9200) do
   it { should be_listening.on('::').with('tcp6') }
   it { should_not be_listening.with('udp') }
 end
+
+describe port(9300) do
+  it { should be_listening.on('::').with('tcp6') }
+  it { should_not be_listening.with('udp') }
+end

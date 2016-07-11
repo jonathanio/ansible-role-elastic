@@ -2,8 +2,10 @@
 # defaults file for elasticsearch
 
 elasticsearch_bind: 127.0.0.1
-elasticsearch_port: 9200
+elasticsearch_port_api: 9200
+elasticsearch_port_cluster: 9300
 
 elasticsearch_cluster_name: elasticsearch
 
-elasticsearch_plugins: []
+elasticsearch_plugins_add: []
+elasticsearch_plugins_remove: []
