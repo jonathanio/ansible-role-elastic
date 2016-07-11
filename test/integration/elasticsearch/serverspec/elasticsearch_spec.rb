@@ -10,6 +10,7 @@ when 'debian','ubuntu'
   config_dir = '/etc/elasticsearch'
   config_file = '/etc/elasticsearch/elasticsearch.yml'
   logging_file = '/etc/elasticsearch/elasticsearch.yml'
+  defaults_file = '/etc/defaults/elasticsearch'
   config_owner = 'root'
   config_group = 'elasticsearch'
 when 'redhat','centos'
@@ -18,6 +19,7 @@ when 'redhat','centos'
   config_dir = '/etc/elasticsearch'
   config_file = '/etc/elasticsearch/elasticsearch.yml'
   logging_file = '/etc/elasticsearch/elasticsearch.yml'
+  defaults_file = '/etc/sysconfig/elasticsearch'
   config_owner = 'root'
   config_group = 'elasticsearch'
 else
@@ -26,6 +28,7 @@ else
   config_dir = '/etc/elasticsearch'
   config_file = '/etc/elasticsearch/elasticsearch.yml'
   logging_file = '/etc/elasticsearch/elasticsearch.yml'
+  defaults_file = '/etc/defaults/elasticsearch'
   config_owner = 'root'
   config_group = 'elasticsearch'
 end
@@ -40,6 +43,14 @@ describe file(config_dir) do
   it { should be_mode 750 }
   it { should be_owned_by config_owner }
   it { should be_grouped_into config_group }
+end
+
+describe file(defaults_file) do
+  it { should exist }
+  it { should be_file }
+  it { should be_mode 640 }
+  it { should be_owned_by 'root' }
+  it { should be_grouped_into 'root' }
 end
 
 describe file(config_file) do
