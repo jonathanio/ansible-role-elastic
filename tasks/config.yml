@@ -1,7 +1,7 @@
 ---
 # configuration tasks for elasticsearch
 
-- name: Install elasticsearch.yml
+- name: Configure elasticsearch.yml
   template:
     src: elasticsearch.yml.j2
     dest: "{{ elasticsearch_config.master }}"
@@ -11,7 +11,7 @@
   notify:
     restart elasticsearch
 
-- name: Install logging.yml
+- name: Configure logging.yml
   template:
     src: logging.yml.j2
     dest: "{{ elasticsearch_config.logging }}"

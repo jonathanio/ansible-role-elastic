@@ -27,7 +27,7 @@
   with_items:
     "{{ elasticsearch_packages }}"
 
-- name: Install ElasticSearch Defaults
+- name: Configure ElasticSearch Defaults
   template:
     src: elasticsearch.j2
     dest: /etc/defaults/elasticsearch
