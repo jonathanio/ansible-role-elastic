@@ -9,3 +9,25 @@
     host: "{{ elasticsearch_bind }}"
     port: "{{ elasticsearch_port_http }}"
     delay: 1
+
+- name: Install plugins in ElasticSearch
+  command: >
+    /usr/share/elasticsearch/bin/plugin install "{{ item }}"
+  args:
+    creates: "/usr/share/elasticsearch/plugins/{{ item }}"
+  ignore_errors: true
+  with_items:
+    "{{ elasticsearch_plugins_add }}"
+  notify:
+    restart elasticsearch
+
+- name: Remove plugins from ElasticSearch
+  command: >
+    /usr/share/elasticsearch/bin/plugin remove "{{ item }}"
+  args:
+    removes: "/usr/share/elasticsearch/plugins/{{ item }}"
+  ignore_errors: true
+  with_items:
+    "{{ elasticsearch_plugins_remove }}"
+  notify:
+    restart elasticsearch
