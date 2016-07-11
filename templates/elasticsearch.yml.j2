@@ -1,17 +1,23 @@
 # {{ ansible_managed }}
 
-network.host: {{ elasticsearch_bind }}
-http.port: {{ elasticsearch_port_api }}
+network.host: [_local_, {{ elasticsearch_bind }}]
+transport.host: [_local_, {{ elasticsearch_bind }}]
+transport.tcp.port: {{ elasticsearch_port_transport }}
+
+http.host: [_local_, {{ elasticsearch_bind }}]
+http.port: {{ elasticsearch_port_http }}
 
 cluster.name: {{ elasticsearch_cluster_name }}
-# node.name: node-1
+node.name: {{ elasticsearch_node_name }}
+
 # path.data: /path/to/data
 # path.logs: /path/to/logs
 
 bootstrap.mlockall: true
 
-# discovery.zen.ping.unicast.hosts: ["host1", "host2"]
+action.destructive_requires_name: true
+
+# discovery.zen.ping.multicast.enabled: false
+# discovery.zen.ping.unicast.hosts: [{% for node in groups[elasticsearch_group] %}"{{ hostvars[node]['ansible_eth1']['ipv4']['address'] }}:9300"{% if not loop.last %},{% endif %}{% endfor %}]
 # discovery.zen.minimum_master_nodes: 3
 # gateway.recover_after_nodes: 3
-
-action.destructive_requires_name: true

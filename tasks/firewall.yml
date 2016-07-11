@@ -8,7 +8,7 @@
     state: enabled
     immediate: yes
   with_items:
-    - "{{ elasticsearch_port_api }}"
-    - "{{ elasticsearch_port_cluster }}"
+    - "{{ elasticsearch_port_http }}"
+    - "{{ elasticsearch_port_transport }}"
   when:
     (use_firewalld is defined and use_firewalld)
