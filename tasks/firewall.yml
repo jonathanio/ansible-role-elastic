@@ -1,0 +1,14 @@
+---
+# firewall-specific tasks for elasticsearch
+
+- name: Open firewalld ports for ElasticSearch
+  firewalld:
+    port: "{{ item }}/tcp"
+    permanent: true
+    state: enabled
+    immediate: yes
+  with_items:
+    - "{{ elasticsearch_port_api }}"
+    - "{{ elasticsearch_port_cluster }}"
+  when:
+    (use_firewalld is defined and use_firewalld)

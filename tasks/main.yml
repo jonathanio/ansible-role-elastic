@@ -12,5 +12,6 @@
     ansible_os_family == "Archlinux"
 
 - include: config.yml
+- include: firewall.yml
 - include: service.yml
 - include: plugins.yml
