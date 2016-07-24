@@ -3,7 +3,7 @@
 
 - include_vars: debian.yml
 
-- name: Install https driver for APT
+- name: Install HTTPS driver for APT
   apt:
     name: apt-transport-https
     state: installed
