@@ -20,3 +20,11 @@
     mode: 0640
   notify:
     restart elasticsearch
+
+- name: Create data directory for ElasticSearch
+  file:
+    dest: "{{ elasticsearch_data_dir }}"
+    state: directory
+    owner: elasticsearch
+    group: elasticsearch
+    mode: 0755

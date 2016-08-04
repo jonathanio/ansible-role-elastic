@@ -17,3 +17,5 @@ elasticsearch_config:
   group: elasticsearch
 
 elasticsearch_service: elasticsearch
+
+elasticsearch_default_data_dir: /var/lib/elasticsearch/data

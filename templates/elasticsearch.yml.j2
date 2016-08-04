@@ -24,8 +24,8 @@ transport.tcp.port: {{ elasticsearch_port_transport }}
 cluster.name: {{ elasticsearch_cluster_name }}
 node.name: {{ elasticsearch_node_name }}
 
-# path.data: /path/to/data
-# path.logs: /path/to/logs
+path.data: {{ elasticsearch_data_dir | default(elasticsearch_default_data_dir) }}
+path.logs: /var/log/elasticsearch
 
 bootstrap.mlockall: true
 
