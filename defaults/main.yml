@@ -1,6 +1,8 @@
 ---
 # defaults file for elasticsearch
 
+elasticsearch_packages: []
+
 elasticsearch_bind: 127.0.0.1
 elasticsearch_port_http: 9200
 elasticsearch_port_transport: 9300
