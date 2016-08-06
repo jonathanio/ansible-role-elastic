@@ -6,6 +6,9 @@
   become_method: sudo
   vars:
     elasticsearch_bind: 0.0.0.0
+    elasticsearch_node_name: ServerSpecNode
+    elasticsearch_cluster_name: ServerSpecTesting
+    elasticsearch_data_dir: /data/elasticsearch
   roles:
     - { role: java, java_type: openjdk, java_version: 7 }
     - { role: ansible-role-elasticsearch }

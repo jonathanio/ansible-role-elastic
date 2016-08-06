@@ -51,6 +51,8 @@ describe file(defaults_file) do
   it { should be_mode 640 }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
+  its(:content) { should match /^ES_HEAP_SIZE=[0-9]+m$/ }
+  its(:content) { should match /^DATA_DIR=\/data\/elasticsearch$/ }
 end
 
 describe file(config_file) do
@@ -59,6 +61,15 @@ describe file(config_file) do
   it { should be_mode 640 }
   it { should be_owned_by config_owner }
   it { should be_grouped_into config_group }
+  its(:content) { should match /^network\.host: \[0\.0\.0\.0\]$/ }
+  its(:content) { should match /^http\.host: \[0\.0\.0\.0\]$/ }
+  its(:content) { should match /^transport\.host: \[0\.0\.0\.0\]$/ }
+  its(:content) { should match /^http\.port: 9200$/ }
+  its(:content) { should match /^transport\.tcp\.port: 9300$/ }
+  its(:content) { should match /^cluster\.name: ServerSpecTesting$/ }
+  its(:content) { should match /^node\.name: ServerSpecNode$/ }
+  its(:content) { should match /^path\.data: \/data\/elasticsearch$/ }
+  its(:content) { should match /^discovery\.zen\.ping\.unicast\.hosts: ["127\.0\.0\.1:9300"]$/ }
 end
 
 describe file(logging_file) do
@@ -67,6 +78,7 @@ describe file(logging_file) do
   it { should be_mode 640 }
   it { should be_owned_by config_owner }
   it { should be_grouped_into config_group }
+  # No custom changes at this time
 end
 
 describe service(service_name) do
