@@ -74,3 +74,5 @@ provisioner:
 verifier:
   name: serverspec
   sudo_path: true
+  bundler_path: /usr/local/bin
+  rspec_path: /usr/local/bin
