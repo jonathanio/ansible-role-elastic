@@ -12,3 +12,15 @@
     - "{{ elasticsearch_port_transport }}"
   when:
     (use_firewalld is defined and use_firewalld)
+
+- name: Open ufw ports for ElasticSearch
+  ufw:
+    port: "{{ item }}"
+    proto: tcp
+    direction: in
+    policy: allow
+  with_items:
+    - "{{ elasticsearch_port_http }}"
+    - "{{ elasticsearch_port_transport }}"
+  when:
+    (use_ufw is defined and use_ufw)
