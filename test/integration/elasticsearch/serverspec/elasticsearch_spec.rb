@@ -69,7 +69,7 @@ describe file(config_file) do
   its(:content) { should match /^cluster\.name: ServerSpecTesting$/ }
   its(:content) { should match /^node\.name: ServerSpecNode$/ }
   its(:content) { should match /^path\.data: \/data\/elasticsearch$/ }
-  its(:content) { should match /^discovery\.zen\.ping\.unicast\.hosts: ["127\.0\.0\.1:9300"]$/ }
+  its(:content) { should match /^discovery\.zen\.ping\.unicast\.hosts: \["127\.0\.0\.1:9300"\]$/ }
 end
 
 describe file(logging_file) do
