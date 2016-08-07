@@ -54,6 +54,8 @@ platforms:
 
 suites:
   - name: elasticsearch
+    excludes:
+      - centos-6
     verifier:
       patterns:
         - "roles/*/test/integration/elasticsearch/serverspec/*_spec.rb"
