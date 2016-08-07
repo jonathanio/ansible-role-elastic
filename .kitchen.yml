@@ -22,6 +22,8 @@ platforms:
   - name: centos-6
     transport:
       username: centos
+    provisioner:
+      require_ansible_omnibus: true
     # Ruby 2.0 is installed in custom location. Override these calls to ensure
     # that serverspec can be installed and run (otherwise it won't be found)
     verifier:
@@ -36,6 +38,8 @@ platforms:
   - name: centos-7
     transport:
       username: centos
+    provisioner:
+      require_ansible_omnibus: true
     verifier:
       bundler_path: /opt/rh/ruby200/root/usr/local/bin
       rspec_path: /opt/rh/ruby200/root/usr/local/bin
@@ -48,9 +52,6 @@ platforms:
   - name: ubuntu-14.04
     transport:
       username: ubuntu
-    # The Omnibus provisioner doesn't work correctly on Ubuntu boxes atm
-    provisioner:
-      require_ansible_omnibus: false
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1404
@@ -60,8 +61,6 @@ platforms:
   - name: ubuntu-16.04
     transport:
       username: ubuntu
-    provisioner:
-      require_ansible_omnibus: false
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1604
@@ -84,9 +83,9 @@ provisioner:
   name: ansible_playbook
   hosts: all
   requirements_path: test/requirements.yml
-  require_ansible_omnibus: true
   require_ruby_for_busser: true
   require_chef_for_busser: false
+  require_ansible_omnibus: false
 
 verifier:
   name: serverspec
