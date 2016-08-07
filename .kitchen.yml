@@ -16,8 +16,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: debian-8
   - name: centos-6
-    provisioner:
-      require_ansible_omnibus: true
     # Ruby 2.0 is installed in custom location. Override these calls to ensure
     # that serverspec can be installed and run (otherwise it won't be found)
     verifier:
@@ -30,8 +28,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: centos-6
   - name: centos-7
-    provisioner:
-      require_ansible_omnibus: true
     verifier:
       bundler_path: /opt/rh/ruby200/root/usr/local/bin
       rspec_path: /opt/rh/ruby200/root/usr/local/bin
@@ -73,7 +69,7 @@ provisioner:
   requirements_path: test/requirements.yml
   require_ruby_for_busser: true
   require_chef_for_busser: false
-  require_ansible_omnibus: false
+  require_ansible_omnibus: true
 
 verifier:
   name: serverspec
