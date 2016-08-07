@@ -8,6 +8,7 @@ elasticsearch_config:
   master: /etc/elasticsearch/elasticsearch.yml
   logging: /etc/elasticsearch/logging.yml
   owner: root
+  data: elasticsearch
   group: elasticsearch
 
 elasticsearch_service: elasticsearch

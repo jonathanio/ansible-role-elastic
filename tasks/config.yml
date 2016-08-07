@@ -25,6 +25,6 @@
   file:
     dest: "{{ elasticsearch_data_dir | default(elasticsearch_default_data_dir) }}"
     state: directory
-    owner: "{{ elasticsearch_config.owner }}"
+    owner: "{{ elasticsearch_config.data }}"
     group: "{{ elasticsearch_config.group }}"
     mode: 0755
