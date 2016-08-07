@@ -9,6 +9,7 @@
     elasticsearch_node_name: ServerSpecNode
     elasticsearch_cluster_name: ServerSpecTesting
     elasticsearch_data_dir: /data/elasticsearch
+    elasticsearch_heap_size: 256m
   roles:
     - { role: java, java_type: openjdk, java_version: 7 }
     - { role: ansible-role-elasticsearch }
