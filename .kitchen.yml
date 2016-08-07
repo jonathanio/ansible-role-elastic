@@ -2,8 +2,6 @@
 
 platforms:
   - name: debian-7
-    transport:
-      username: admin
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-debian-7
@@ -11,8 +9,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: debian-7
   - name: debian-8
-    transport:
-      username: admin
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-debian-8
@@ -20,8 +16,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: debian-8
   - name: centos-6
-    transport:
-      username: centos
     provisioner:
       require_ansible_omnibus: true
     # Ruby 2.0 is installed in custom location. Override these calls to ensure
@@ -36,8 +30,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: centos-6
   - name: centos-7
-    transport:
-      username: centos
     provisioner:
       require_ansible_omnibus: true
     verifier:
@@ -50,8 +42,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: centos-7
   - name: ubuntu-14.04
-    transport:
-      username: ubuntu
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1404
@@ -59,8 +49,6 @@ platforms:
         TestKitchenRole: elasticsearch
         TestKitchenPlatform: ubuntu-14.04
   - name: ubuntu-16.04
-    transport:
-      username: ubuntu
     driver:
       tags:
         Name: ansible-test-kitchen-role-elasticsearch-ubuntu-1604
