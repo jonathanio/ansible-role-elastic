@@ -53,12 +53,24 @@ platforms:
         TestKitchenPlatform: ubuntu-16.04
 
 suites:
-  - name: elasticsearch
+  - name: elasticsearch-java17
+    # Only run on Ubuntu 14.04
     excludes:
       - centos-6
+      - centos-7
+      - debian-8
+      - debian-7
+      - ubuntu-16.04
     verifier:
       patterns:
-        - "roles/*/test/integration/elasticsearch/serverspec/*_spec.rb"
+        - "roles/*/test/integration/elasticsearch-java17/serverspec/*_spec.rb"
+  - name: elasticsearch-java18
+    excludes:
+      - centos-6
+      - ubuntu-14.04
+    verifier:
+      patterns:
+        - "roles/*/test/integration/elasticsearch-java18/serverspec/*_spec.rb"
 
 provisioner:
   name: ansible_playbook
